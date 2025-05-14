@@ -1,7 +1,7 @@
 # Projet - L'Atelier des Jeux
 
 <p align="center">
-  <img src="" width="60%">
+  <img src="https://github.com/MJSIO1A/helpdesksio/blob/main/images/support.png" width="60%">
 </p>
 
 <h2 align="center"><strong>L'Atelier des jeux</strong></h2>
@@ -30,3 +30,10 @@ L’Atelier des Jeux est une entreprise spécialisée dans la création de jeux 
 **Une option de sécurité**
 
 **+ du css et responsive**
+
+![Accueil](https://github.com/MJSIO1A/helpdesksio/blob/main/images/accueil.png)
+
+**La page d'accueil**
+![PageAccueil](https://github.com/MJSIO1A/helpdesksio/blob/main/images/accueil.png)
+_Code :_
+![CodeAccueil](https://github.com/MJSIO1A/helpdesksio/blob/main/images/accueil.png)
