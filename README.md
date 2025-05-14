@@ -31,8 +31,6 @@ L’Atelier des Jeux est une entreprise spécialisée dans la création de jeux 
 
 **+ du css et responsive**
 
-![Accueil](https://github.com/MJSIO1A/helpdesksio/blob/main/images/accueil.png)
-
 **La page d'accueil**
 ![PageAccueil](https://github.com/MJSIO1A/helpdesksio/blob/main/images/accueil.png)
 _Code :_
