@@ -13,20 +13,20 @@ L’Atelier des Jeux est une entreprise spécialisée dans la création de jeux 
 ## Les pages du projet
 
 
-** Une page d'accueil **
+**Une page d'accueil**
 
-** Une page de demande d'assistance **
+**Une page de demande d'assistance**
 
-** Un système de connexion pour technicien **
+**Un système de connexion pour technicien**
 
-** Panneau d'accueil avec les tickets **
+**Panneau d'accueil avec les tickets**
 
-** Une consultation plus approfondi des tickets **
+**Une consultation plus approfondi des tickets**
 
-** La création d'un compte technicien **
+**La création d'un compte technicien**
 
-** Un système de log (avec un bonus) ** 
+**Un système de log (avec un bonus)** 
 
-** Une option de sécurité **
+**Une option de sécurité**
 
-** + du css et responsive **
+**+ du css et responsive**
