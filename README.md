@@ -43,5 +43,12 @@ _Code :_ Comme c'est le début, il n'y a pas forcément de php, cela peut être 
 
 **- Page de demande d'assistance :**
 ![Assistance](https://github.com/MJSIO1A/helpdesksio/blob/main/images/assistance.png)
-_Code :_
+_Code :_ Ici nous pouvons voir du php, mais également *require_once 'includes/db.php';*. Cela va nous permettre de nous connecter à la BDD de _helpdesk_, afin ensuite de pourvoir enregistrer les demandes.
 ![CodeAssistance](https://github.com/MJSIO1A/helpdesksio/blob/main/images/codephp.png)
+
+---
+
+**- Page connexion techinicien**
+![connexion](https://github.com/MJSIO1A/helpdesksio/blob/main/images/connexion.png)
+_Code :_ De même ici, une connexion à la BDD à partir de la table _utilisateurs_.
+![CodeConnexion](https://github.com/MJSIO1A/helpdesksio/blob/main/images/codephp2.png)
