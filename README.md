@@ -57,4 +57,14 @@ _Code :_ De même ici, une connexion à la BDD à partir de la table _utilisateu
 
 **Panneau d'accueil**
 ![Dashboard](https://github.com/MJSIO1A/helpdesksio/blob/main/images/dashboard.png)
+_Code :_ Un fichier de connexion différent pour une autre connexion à une autre table, la table _Tickets._
+![CodeDash](https://github.com/MJSIO1A/helpdesksio/blob/main/images/code%20php3.png)
+
+---
+
+**Consultation plus approfondi du ticket**
+![ApprofTick](https://github.com/MJSIO1A/helpdesksio/blob/main/images/dashboardpro.png)
 _Code :_
+![CodePro](https://github.com/MJSIO1A/helpdesksio/blob/main/images/codephp4.png)
+
+---
