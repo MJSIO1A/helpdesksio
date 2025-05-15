@@ -50,29 +50,23 @@ _Tout les codes des pages ci-dessous sont après la présentation graphique des 
 
 ---
 
-**- Panneau d'accueil**
+**- Panneau d'accueil :**
 ![Dashboard](https://github.com/MJSIO1A/helpdesksio/blob/main/images/dashboard.png)
 
 ---
 
-**- Consultation plus approfondi du ticket**
+**- Consultation plus approfondi du ticket :**
 ![ApprofTick](https://github.com/MJSIO1A/helpdesksio/blob/main/images/dashboardpro.png)
-_Code :_
-![CodePro](https://github.com/MJSIO1A/helpdesksio/blob/main/images/codephp4.png)
 
 ---
 
-**- Création compte technicien**
+**- Création compte technicien :**
 ![CreateTech](https://github.com/MJSIO1A/helpdesksio/blob/main/images/inscription.png)
-_Code :_ Dans le code, nous pouvons voir un autre fichier php pour la BDD.
-![CodeRegist](https://github.com/MJSIO1A/helpdesksio/blob/main/images/coderegister.png)
 
 ---
 
 **- Système de log (fait en collaboration avec Lucas Sueur + une fonctionnalitée)**
 ![logs](https://github.com/MJSIO1A/helpdesksio/blob/main/images/logs.png)
-_Code :_
-![CodeLogs](https://github.com/MJSIO1A/helpdesksio/blob/main/images/codelog.png)
 
 ## Codes du projet
 
@@ -91,7 +85,20 @@ _- Code connexion technicien :_ De même ici, une connexion à la BDD à partir 
 
 ---
 
-_Code Tableau tickets :_ Un fichier de connexion différent pour une autre connexion à une autre table, la table _Tickets._
+_- Code Tableau tickets :_ Un fichier de connexion différent pour une autre connexion à une autre table, la table _Tickets._
 ![CodeDash](https://github.com/MJSIO1A/helpdesksio/blob/main/images/code%20php3.png)
 
 ---
+
+_- Code Aprofondissement d'un ticket :_
+![CodePro](https://github.com/MJSIO1A/helpdesksio/blob/main/images/codephp4.png)
+
+---
+
+_- Code Création technicien :_ Dans le code, nous pouvons voir un autre fichier php pour la BDD.
+![CodeRegist](https://github.com/MJSIO1A/helpdesksio/blob/main/images/coderegister.png)
+
+---
+
+_- Code système de logs + la fonctionnalitée vider les logs avec un bouton :_
+![CodeLogs](https://github.com/MJSIO1A/helpdesksio/blob/main/images/codelog.png)
