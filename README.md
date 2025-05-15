@@ -52,3 +52,9 @@ _Code :_ Ici nous pouvons voir du php, mais également *require_once 'includes/d
 ![connexion](https://github.com/MJSIO1A/helpdesksio/blob/main/images/connexion.png)
 _Code :_ De même ici, une connexion à la BDD à partir de la table _utilisateurs_.
 ![CodeConnexion](https://github.com/MJSIO1A/helpdesksio/blob/main/images/codephp2.png)
+
+---
+
+**Panneau d'accueil**
+![Dashboard](https://github.com/MJSIO1A/helpdesksio/blob/main/images/dashboard.png)
+_Code :_
