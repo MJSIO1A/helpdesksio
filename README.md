@@ -71,5 +71,13 @@ _Code :_
 
 **- Création compte technicien**
 ![CreateTech](https://github.com/MJSIO1A/helpdesksio/blob/main/images/inscription.png)
-_Code :_
+_Code :_ Dans le code, nous pouvons voir un autre fichier php pour la BDD.
 ![CodeRegist](https://github.com/MJSIO1A/helpdesksio/blob/main/images/coderegister.png)
+
+---
+
+**- Système de log (fait en collaboration avec Lucas Sueur + une fonctionnalitée)**
+![logs](https://github.com/MJSIO1A/helpdesksio/blob/main/images/logs.png)
+_Code :_
+![CodeLogs](https://github.com/MJSIO1A/helpdesksio/blob/main/images/codelog.png)
+
