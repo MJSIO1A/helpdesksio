@@ -42,15 +42,11 @@ _Tout les codes des pages ci-dessous sont après la présentation graphique des 
 
 **- Page de demande d'assistance :**
 ![Assistance](https://github.com/MJSIO1A/helpdesksio/blob/main/images/assistance.png)
-_Code :_ Ici nous pouvons voir du php, mais également *require_once 'includes/db.php';*. Cela va nous permettre de nous connecter à la BDD de _helpdesk_, afin ensuite de pourvoir enregistrer les demandes.
-![CodeAssistance](https://github.com/MJSIO1A/helpdesksio/blob/main/images/codephp.png)
-
+ 
 ---
 
 **- Page connexion techinicien**
 ![connexion](https://github.com/MJSIO1A/helpdesksio/blob/main/images/connexion.png)
-_Code :_ De même ici, une connexion à la BDD à partir de la table _utilisateurs_.
-![CodeConnexion](https://github.com/MJSIO1A/helpdesksio/blob/main/images/codephp2.png)
 
 ---
 
@@ -82,5 +78,17 @@ _Code :_
 
 ## Codes du projet
 
-_Code Accueil :_ Comme c'est le début, il n'y a pas forcément de php, cela peut être optionnel
+_- Code Accueil :_ Comme c'est le début, il n'y a pas forcément de php, cela peut être optionnel
 ![CodeAccueil](https://github.com/MJSIO1A/helpdesksio/blob/main/images/code1.png)
+
+---
+
+_- Code de demande assistance :_ Ici nous pouvons voir du php, mais également *require_once 'includes/db.php';*. Cela va nous permettre de nous connecter à la BDD de _helpdesk_, afin ensuite de pourvoir enregistrer les demandes.
+![CodeAssistance](https://github.com/MJSIO1A/helpdesksio/blob/main/images/codephp.png)
+
+---
+
+_- Code connexion technicien :_ De même ici, une connexion à la BDD à partir de la table _utilisateurs_.
+![CodeConnexion](https://github.com/MJSIO1A/helpdesksio/blob/main/images/codephp2.png)
+
+---
