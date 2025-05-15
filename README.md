@@ -52,8 +52,6 @@ _Tout les codes des pages ci-dessous sont après la présentation graphique des 
 
 **- Panneau d'accueil**
 ![Dashboard](https://github.com/MJSIO1A/helpdesksio/blob/main/images/dashboard.png)
-_Code :_ Un fichier de connexion différent pour une autre connexion à une autre table, la table _Tickets._
-![CodeDash](https://github.com/MJSIO1A/helpdesksio/blob/main/images/code%20php3.png)
 
 ---
 
@@ -90,5 +88,10 @@ _- Code de demande assistance :_ Ici nous pouvons voir du php, mais également *
 
 _- Code connexion technicien :_ De même ici, une connexion à la BDD à partir de la table _utilisateurs_.
 ![CodeConnexion](https://github.com/MJSIO1A/helpdesksio/blob/main/images/codephp2.png)
+
+---
+
+_Code Tableau tickets :_ Un fichier de connexion différent pour une autre connexion à une autre table, la table _Tickets._
+![CodeDash](https://github.com/MJSIO1A/helpdesksio/blob/main/images/code%20php3.png)
 
 ---
