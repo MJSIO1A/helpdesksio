@@ -37,9 +37,6 @@ _Tout les codes des pages ci-dessous sont après la présentation graphique des 
 
 **- La page d'accueil :**
 ![PageAccueil](https://github.com/MJSIO1A/helpdesksio/blob/main/images/accueil.png)
-_Code :_ Comme c'est le début, il n'y a pas forcément de php, cela peut être optionnel
-
-![CodeAccueil](https://github.com/MJSIO1A/helpdesksio/blob/main/images/code1.png)
 
 ---
 
@@ -83,3 +80,7 @@ _Code :_ Dans le code, nous pouvons voir un autre fichier php pour la BDD.
 _Code :_
 ![CodeLogs](https://github.com/MJSIO1A/helpdesksio/blob/main/images/codelog.png)
 
+## Codes du projet
+
+_Code Accueil :_ Comme c'est le début, il n'y a pas forcément de php, cela peut être optionnel
+![CodeAccueil](https://github.com/MJSIO1A/helpdesksio/blob/main/images/code1.png)
