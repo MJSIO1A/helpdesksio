@@ -27,9 +27,11 @@ L’Atelier des Jeux est une entreprise spécialisée dans la création de jeux 
 
 **Un système de log (avec une fonctionnalité en plus)** 
 
-**Une option de sécurité**
+**Une option de sécurité(voir dans la partie code)**
 
-**+ du css et responsive**
+**+ du css et responsive(voir dans la partie code**
+
+_Tout les codes des pages ci-dessous sont après la présentation graphique des pages_
 
 ---
 
