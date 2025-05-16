@@ -116,6 +116,7 @@ _- Code connexion à la BDD helpdesk :_
 ![bdd](https://github.com/MJSIO1A/helpdesksio/blob/main/images/dbconn.png)
 
 _- Code pour lien vers les log :_
+
 ![functions](https://github.com/MJSIO1A/helpdesksio/blob/main/images/functionslogs.png)
 
 
