@@ -68,7 +68,7 @@ _Tout les codes des pages ci-dessous sont après la présentation graphique des 
 **- Système de log (fait en collaboration avec Lucas Sueur + une fonctionnalitée)**
 ![logs](https://github.com/MJSIO1A/helpdesksio/blob/main/images/logs.png)
 
-## Codes du projet
+## Codes du projet (php)
 
 _- Code Accueil :_ Comme c'est le début, il n'y a pas forcément de php, cela peut être optionnel
 ![CodeAccueil](https://github.com/MJSIO1A/helpdesksio/blob/main/images/code1.png)
@@ -108,6 +108,14 @@ _- Code système de logs + la fonctionnalitée vider les logs avec un bouton :_
 _- Le css est responsive grâce à media queries, intégré dans le css(fait par Yanis Tanquerel) :_
 
 ![queries](https://github.com/MJSIO1A/helpdesksio/blob/main/images/queries.png)
+
+
+# Codes php connexion à la BDD et le système de log
+
+_- Code connexion à la BDD helpdesk_
+![bdd](https://github.com/MJSIO1A/helpdesksio/blob/main/images/dbconn.png)
+
+_- Code 
 
 
 ## Démonstration du projet
