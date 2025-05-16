@@ -106,7 +106,7 @@ _- Code système de logs + la fonctionnalitée vider les logs avec un bouton :_
 ---
 
 _- Le css est responsive grâce à media queries, intégré dans le css(fait par Yanis Tanquerel) :_
-![queries](
+![queries](https://github.com/MJSIO1A/helpdesksio/blob/main/images/queries.png)
 
 
 ## Démonstration du projet
