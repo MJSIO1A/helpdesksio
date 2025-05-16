@@ -29,7 +29,7 @@ L’Atelier des Jeux est une entreprise spécialisée dans la création de jeux 
 
 **Une option de sécurité(voir dans la partie code)**
 
-**+ du css et responsive(voir dans la partie code**
+**+ du css et responsive(voir dans la partie code)**
 
 _Tout les codes des pages ci-dessous sont après la présentation graphique des pages_
 
@@ -102,3 +102,13 @@ _- Code Création technicien :_ Dans le code, nous pouvons voir un autre fichier
 
 _- Code système de logs + la fonctionnalitée vider les logs avec un bouton :_
 ![CodeLogs](https://github.com/MJSIO1A/helpdesksio/blob/main/images/codelog.png)
+
+---
+
+_- Le css est responsive grâce à media queries, intégré dans le css(fait par Yanis Tanquerel) :_
+![queries](
+
+
+## Démonstration du projet
+
+![Voir la vidéo](
