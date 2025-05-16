@@ -112,10 +112,11 @@ _- Le css est responsive grâce à media queries, intégré dans le css(fait par
 
 # Codes php connexion à la BDD et le système de log
 
-_- Code connexion à la BDD helpdesk_
+_- Code connexion à la BDD helpdesk :_
 ![bdd](https://github.com/MJSIO1A/helpdesksio/blob/main/images/dbconn.png)
 
-_- Code 
+_- Code pour lien vers les log :_
+![functions](https://github.com/MJSIO1A/helpdesksio/blob/main/images/functionslogs.png)
 
 
 ## Démonstration du projet
