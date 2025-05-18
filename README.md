@@ -463,7 +463,7 @@ if (!isset($_GET['id']) || empty($_GET['id'])) {
     exit;
 }
 
-$ticket_id = intval($_GET['id']); // TU récupères ici l'ID
+$ticket_id = intval($_GET['id']); // Récupération de l'ID
 $error = '';
 $success = '';
 
