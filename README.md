@@ -571,61 +571,86 @@ _- Code Création technicien :_ Dans le code, nous pouvons voir un autre fichier
 <?php
 session_start();
 require_once 'includes/db.php';
+require_once 'includes/functions.php';
 
 $success = false;
 $error = false;
 
+// Récupération de la clé de création (s'il y en a une)
+$stmt = $pdo->query("SELECT cle_creation_hash FROM config LIMIT 1");
+$cle_data = $stmt->fetch();
+$cle_hash_en_base = $cle_data ? $cle_data['cle_creation_hash'] : null;
+
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-	$username = trim($_POST['username'] ?? '');
-	$password = $_POST['password'] ?? '';
-	$confirm = $_POST['confirm'] ?? '';
+    $username = trim($_POST['username'] ?? '');
+    $password = $_POST['password'] ?? '';
+    $confirm = $_POST['confirm'] ?? '';
+    $cle_fournie = $_POST['cle'] ?? '';
 
-if ($username && $password && $password === $confirm) {
-	$hash = password_hash($password, PASSWORD_DEFAULT);
+    if ($username && $password && $password === $confirm && $cle_fournie) {
+        // Si une clé existe déjà : on vérifie qu'elle est correcte
+        if ($cle_hash_en_base) {
+            if (!password_verify($cle_fournie, $cle_hash_en_base)) {
+                $error = "Clé d'accès invalide. Vous ne pouvez pas créer de compte.";
+            }
+        } else {
+            // Première inscription : on enregistre la clé
+            $nouvelle_cle_hash = password_hash($cle_fournie, PASSWORD_DEFAULT);
+            $insert = $pdo->prepare("INSERT INTO config (cle_creation_hash) VALUES (?)");
+            $insert->execute([$nouvelle_cle_hash]);
+        }
 
-// Vérifie si l'utilisateur existe déjà
-	$check = $pdo->prepare("SELECT id FROM utilisateurs WHERE username = ?");
-	$check->execute([$username]);
+        if (!$error) {
+            // Vérifie si le nom d'utilisateur existe déjà
+            $check = $pdo->prepare("SELECT id FROM utilisateurs WHERE username = ?");
+            $check->execute([$username]);
 
-	if ($check->rowCount() === 0) {
-		// Insertion
-	$stmt = $pdo->prepare("INSERT INTO utilisateurs (username, password, role) VALUES (?, ?, 'technicien')");
-	if ($stmt->execute([$username, $hash])) {
-	$success = true;
-} else {
-	$error = "Erreur lors de l'inscription.";
-}
-} else {
-	$error = "Ce nom d'utilisateur est déjà pris.";
-}
-} else {
-	$error = "Les champs sont vides ou les mots de passe ne correspondent pas.";
-}
+            if ($check->rowCount() === 0) {
+                $hash = password_hash($password, PASSWORD_DEFAULT);
+                $stmt = $pdo->prepare("INSERT INTO utilisateurs (username, password, role) VALUES (?, ?, 'technicien')");
+                if ($stmt->execute([$username, $hash])) {
+                    ajouter_log("Un nouveau technicien a été créé : $username");
+                    $success = true;
+                } else {
+                    $error = "Erreur lors de la création du compte.";
+                }
+            } else {
+                $error = "Nom d'utilisateur déjà utilisé.";
+            }
+        }
+    } else {
+        $error = "Tous les champs sont requis et les mots de passe doivent correspondre.";
+    }
 }
 ?>
 
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-	<meta charset="UTF-8">
-	<title>Créer un compte technicien</title>
-<link rel="stylesheet" href="csstech/style.css">
+    <meta charset="UTF-8">
+    <title>Créer un compte technicien</title>
+    <link rel="stylesheet" href="csstech/style.css">
 </head>
 <body>
-	<h1>Inscription technicien</h1>
+<div class="container">
+    <h2>Créer un compte technicien</h2>
 
-	<?php if ($success): ?>
-	<p style"color: green;">Compte créé avec succès ! <a href="login.php">Se connecter</a></p>
-	<?php elseif ($error): ?>
-	<p style="color: red;"><?= htmlspecialchars($error) ?></p>
-	<?php endif; ?>
+    <?php if ($success): ?>
+        <p class="message success">Compte créé avec succès ! <a href="login.php">Se connecter</a></p>
+    <?php elseif ($error): ?>
+        <p class="message error"><?= htmlspecialchars($error) ?></p>
+    <?php endif; ?>
 
-	<form method="POST">
-	<input type="text" name="username" placeholder="Nom d'utilisateur" required><br><br>
-	<input type="password" name="password" placeholder="Mot de passe" required><br><br>
-	<input type="password" name="confirm" placeholder="Confirmer le mot de passe" required><br><br>
-	<button type="submit">Créer le compte</button>
-</form>
+    <form method="POST">
+        <input type="text" name="username" placeholder="Nom d'utilisateur" required>
+        <input type="password" name="password" placeholder="Mot de passe" required>
+        <input type="password" name="confirm" placeholder="Confirmer le mot de passe" required>
+        <input type="password" name="cle" placeholder="Clé de création" required>
+        <button type="submit">Créer le compte</button>
+    </form>
+
+    <p style="margin-top: 15px;"><a href="index.php">← Retour à l'accueil</a></p>
+</div>
 </body>
 </html>
 ```
@@ -633,24 +658,205 @@ if ($username && $password && $password === $confirm) {
 ---
 
 _- Code système de logs + la fonctionnalitée vider les logs avec un bouton :_
-![CodeLogs](https://github.com/MJSIO1A/helpdesksio/blob/main/images/codelog.png)
+```
+<?php
+error_reporting(E_ALL);
+ini_set('display_errors', 1);
+
+session_start();
+require_once 'includes/db.php';
+
+// Vérifie que l'utilisateur est connecté
+if (!isset($_SESSION['user_id'])) {
+    header("Location: login.php");
+    exit;
+}
+
+// Chemin vers le fichier de log
+$log_file = 'logs/log.txt';
+
+// Si l'utilisateur a cliqué sur "Vider les logs"
+if (isset($_POST['clear_logs'])) {
+    file_put_contents($log_file, ''); // On écrase le fichier avec rien
+    header("Location: view_logs.php"); // Rafraîchit la page
+    exit;
+}
+
+// Lire le fichier de logs
+$logs = [];
+if (file_exists($log_file)) {
+    $logs = file($log_file, FILE_IGNORE_NEW_LINES | FILE_SKIP_EMPTY_LINES);
+}
+?>
+
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <title>Logs des actions</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: #f4f4f4;
+            margin: 0;
+            padding: 20px;
+        }
+
+        .container {
+            background: white;
+            padding: 30px;
+            border-radius: 10px;
+            max-width: 800px;
+            margin: auto;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+
+        h1 {
+            color: #3498db;
+            font-size: 1.8em;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+
+        ul {
+            list-style-type: none;
+            padding: 0;
+        }
+
+        li {
+            padding: 12px 10px;
+            border-bottom: 1px solid #ddd;
+            word-wrap: break-word;
+        }
+
+        .actions {
+            margin-top: 30px;
+            text-align: center;
+        }
+
+        .back-link {
+            margin-top: 20px;
+            display: inline-block;
+            color: #3498db;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        button {
+            padding: 10px 20px;
+            background-color: #e74c3c;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-weight: bold;
+        }
+
+        button:hover {
+            background-color: #c0392b;
+        }
+
+        /* Responsive design */
+        @media (max-width: 768px) {
+            .container {
+                padding: 20px;
+                margin: 10px;
+            }
+
+            h1 {
+                font-size: 1.5em;
+            }
+
+            li {
+                font-size: 0.95em;
+            }
+
+            button {
+                width: 100%;
+                font-size: 1em;
+            }
+
+            .back-link {
+                display: block;
+                margin-top: 15px;
+                text-align: center;
+            }
+        }
+
+        @media (max-width: 480px) {
+            h1 {
+                font-size: 1.3em;
+            }
+
+            li {
+                font-size: 0.9em;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h1>Historique des actions (Logs)</h1>
+
+    <?php if (!empty($logs)): ?>
+        <ul>
+            <?php foreach ($logs as $line): ?>
+                <li><?= htmlspecialchars($line) ?></li>
+            <?php endforeach; ?>
+        </ul>
+    <?php else: ?>
+        <p style="text-align:center;">Aucun log enregistré pour le moment.</p>
+    <?php endif; ?>
+
+    <div class="actions">
+        <form method="POST">
+            <button type="submit" name="clear_logs">Vider les logs</button>
+        </form>
+        <a class="back-link" href="dashboard.php">← Retour au tableau de bord</a>
+    </div>
+</div>
+
+</body>
+</html>
+```
 
 ---
 
-_- Le css est responsive grâce à media queries, intégré dans le css(fait par Yanis Tanquerel) :_
+_- Le css est responsive grâce à media queries, intégré dans le css (fait par Yanis Tanquerel) :_
 
-![queries](https://github.com/MJSIO1A/helpdesksio/blob/main/images/queries.png)
+**Voir dans le dossier du projet pour les css.**
 
 
 # Codes php connexion à la BDD et le système de log
 
 _- Code connexion à la BDD helpdesk :_
-![bdd](https://github.com/MJSIO1A/helpdesksio/blob/main/images/dbconn.png)
+```
+<?php
+$host = 'localhost';     // l'adresse de MariaDB
+$dbname = 'helpdesk';    // le nom de la base
+$username = '';      // nom d'utilisateur (mettez l'utilisateur que vous voulez)
+$password = '';          // mot de passe (mettez le mdp que vous voulez)
+
+try {
+    $pdo = new PDO("mysql:host=$host;dbname=$dbname;charset=utf8", $username, $password);
+    $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+} catch (PDOException $e) {
+    die("Erreur de connexion à la base de données : " . $e->getMessage());
+}
+?>
+```
 
 _- Code pour lien vers les log :_
-
-![functions](https://github.com/MJSIO1A/helpdesksio/blob/main/images/functionslogs.png)
-
+```
+<?php
+function ajouter_log($message) {
+    $date = date('Y-m-d H:i:s');
+    $log_message = "[$date] $message" . PHP_EOL;
+    file_put_contents('logs/log.txt', $log_message, FILE_APPEND);
+}
+?>
+```
 
 ## Démonstration du projet
 
