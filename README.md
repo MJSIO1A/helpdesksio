@@ -470,7 +470,7 @@ $success = '';
 // Traitement du formulaire
 if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['description'], $_POST['statut'])) {
     $description = trim($_POST['description']);
-    $statut = $_POST['statut']; // TU récupères ici le nouveau statut
+    $statut = $_POST['statut']; // Récupération du nouveau statut
 
     $allowed_statuses = ['ouvert', 'en_cours', 'fermé'];
     if (in_array($statut, $allowed_statuses)) {
