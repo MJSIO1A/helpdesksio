@@ -61,7 +61,7 @@ _Tout les codes des pages ci-dessous sont après la présentation graphique des 
 ---
 
 **- Création compte technicien :**
-![CreateTech](https://github.com/MJSIO1A/helpdesksio/blob/main/images/inscription.png)
+![CreateTech](https://github.com/MJSIO1A/helpdesksio/blob/main/images/inscription.png](https://github.com/MJSIO1A/helpdesksio/blob/main/images/cr%C3%A9ation2.png))
 
 ---
 
@@ -566,7 +566,7 @@ if (!$ticket) {
 
 ---
 
-_- Code Création technicien :_ Dans le code, nous pouvons voir un autre fichier php pour la BDD.
+_- Code Création technicien :_ Dans le code, nous pouvons voir un autre fichier php pour la BDD, le mdp et hashé ainsi que la clé.
 ```
 <?php
 session_start();
@@ -857,6 +857,8 @@ function ajouter_log($message) {
 }
 ?>
 ```
+
+_**Voir le dossier 'Projet Helpdesk' pour le css**_
 
 ## Démonstration du projet
 
