@@ -225,7 +225,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
 ---
 
-_- Code Tableau tickets :_ Un fichier de connexion différent pour une autre connexion à une autre table, la table _Tickets._
+_- Code Tableau tickets :_ Un fichier de connexion différent pour une autre connexion à une autre table, la table _Tickets._**(redirection vers login.php si non connecté)**
 ```
 <?php
 error_reporting(E_ALL);
@@ -566,7 +566,7 @@ if (!$ticket) {
 
 ---
 
-_- Code Création technicien :_ Dans le code, nous pouvons voir un autre fichier php pour la BDD, le mdp et hashé ainsi que la clé.
+_- Code Création technicien :_ Dans le code, nous pouvons voir un autre fichier php pour la BDD, le mdp est hashé ainsi que la clé.
 ```
 <?php
 session_start();
@@ -862,7 +862,7 @@ _**Voir le dossier 'Projet Helpdesk' pour le css**_
 
 ## Démonstration du projet
 
-![Voir la vidéo](
+[![Voir la vidéo](https://github.com/MJSIO1A/helpdesksio/blob/main/images/accueil.png)](https://www.youtube.com/watch?v=8bLECnubZHo)
 
 ## Télécharger le projet
 
